@@ -5,11 +5,13 @@ import repositories.EventsRepository;
 import services.EventsService;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class EventsServiceImpl implements EventsService {
 
     private final EventsRepository eventsRepository;
+    private static final DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
     public EventsServiceImpl(EventsRepository eventsRepository) {
         this.eventsRepository = eventsRepository;
@@ -47,6 +49,8 @@ public class EventsServiceImpl implements EventsService {
         }
 
     }
+
+
     private boolean containsEventWithId(int id) {
         for (Event event : eventsRepository.findAll()) {
             if (event.getId() == id) {
@@ -59,5 +63,9 @@ public class EventsServiceImpl implements EventsService {
     @Override
     public List<Event> getAllEvents() {
         return eventsRepository.findAll();
+    }
+
+    public Event findBySubstring(String subString){
+        return eventsRepository.findOneBySubstring(subString);
     }
 }

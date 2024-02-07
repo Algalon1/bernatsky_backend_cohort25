@@ -58,6 +58,6 @@ public class Event {
 
     @Override
     public String toString(){
-        return String.format("Event: %s, start date is: %s, end date is: %s",this.title,this.startDate,this.endDate);
+        return String.format("(id: %d) Event: %s, start date is: %s, end date is: %s",this.id,this.title,this.startDate,this.endDate);
     }
 }

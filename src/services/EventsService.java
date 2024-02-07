@@ -12,4 +12,5 @@ public interface EventsService {
     List<Event> getAllEvents();
 
     void  deleteEvent(int id);
+    Event findBySubstring(String subString);
 }

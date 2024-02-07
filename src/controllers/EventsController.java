@@ -46,4 +46,10 @@ public class EventsController {
         eventsService.deleteEvent(id);
         System.out.println();
     }
+
+    public void findBySubstring(){
+        System.out.println("Enter the substring of the event to delete");
+        String subString = scanner.nextLine();
+        System.out.println(eventsService.findBySubstring(subString));
+    }
 }
